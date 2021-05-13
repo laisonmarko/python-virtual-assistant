@@ -58,15 +58,12 @@ def listen():
 def init():
     hour = int(datetime.datetime.now().hour)
     if hour >= 0 and hour < 12:
-        speak("Good Morning SIR")
+        speak("Good Morning ")
     elif hour >= 12 and hour < 18:
-        speak("Good Afternoon SIR")
+        speak("Good Afternoon ")
 
     else:
-        speak('Good Evening SIR')
-
-    # weather()
-    # speak('I am JARVIS. Please tell me how can I help you SIR?')
+        speak('Good Evening ')
 
 
 def sendEmail(to, content):
@@ -76,9 +73,6 @@ def sendEmail(to, content):
     server.login('email', 'password')
     server.sendmail('email', to, content)
     server.close()
-
-
-
 
 def screenshot():
     img = pyautogui.screenshot()
@@ -206,7 +200,7 @@ while True:
 
 
     elif 'your master' in command:
-            speak('Laison is my master. He created me couple of days ago')
+            speak('Laison is my master')
 
 
     elif 'your name' in command:
@@ -243,11 +237,12 @@ while True:
         translate(listen())
 
 
-    elif 'email to gaurav' in command:
+    elif 'email to' in command:
         try:
-            speak('What should I say?')
+            command=command.replace('email to','')
+            speak('What is the content?')
             content = listen()
-            to = 'email'
+            to = command
             sendEmail(to, content)
             speak('Email has been sent!')
 
