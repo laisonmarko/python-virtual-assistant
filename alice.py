@@ -6,12 +6,7 @@ import os
 import sys
 import smtplib
 import psutil
-import pyjokes
 import pyautogui
-from news import speak_news, getNewsUrl
-from diction import translate
-from loc import weather
-from youtube import youtube
 import psutil
 import os
 import getpass
@@ -31,6 +26,15 @@ def speak(audio):
     engine.runAndWait()
 
 
+
+hour = int(datetime.datetime.now().hour)
+if hour >= 0 and hour < 12:
+    speak("Good Morning ")
+elif hour >= 12 and hour < 18:
+    speak("Good Afternoon ")
+
+else:
+    speak('Good Evening ')
 
 def listen():
 
@@ -55,15 +59,7 @@ def listen():
     return command
 
 
-def init():
-    hour = int(datetime.datetime.now().hour)
-    if hour >= 0 and hour < 12:
-        speak("Good Morning ")
-    elif hour >= 12 and hour < 18:
-        speak("Good Afternoon ")
-
-    else:
-        speak('Good Evening ')
+    
 
 
 def sendEmail(to, content):
@@ -76,10 +72,20 @@ def sendEmail(to, content):
 
 def screenshot():
     img = pyautogui.screenshot()
-    img.save('path of folder you want to save/screenshot.png')
+    img.save('screenshot.png')
+
+def getPath(command):
+    with open('paths.txt') as f:
+        for line in f:
+            if command.lower() in line.lower():
+                a="start "+line #System command
+                print("start from a line")
+                os.system(a) #Opening the file
+                return True
 
 
-init()
+
+
 while True:
     command = listen().lower()
 
@@ -130,39 +136,32 @@ while True:
         if "open" in command.lower():
             print("in open")       
             command=command.replace('open ','')     #Removing  open from String
-
-            with open('paths.txt') as f:
-                for line in f:
-                    if command.lower() in line.lower():
-                        a="start "+line #System command
-                        print("start from a line")
-                        os.system(a) #Opening the file
-
-
-            for root,dirs,files in os.walk(path): #Lisiting all files
-                
-                for entry in files: #Looking through files
-                    if command.lower() in entry.lower(): #comparing searched file with available files
-                        response=listen()
-                        speak("Did u mean "+entry)
-                        if "yes" in response.lower():
-                            
-                            print(entry)  #print founded file
-                            print("Opening"+root)
-                            root=root.replace('C:/','C:/"')
-                            root=root.replace('""','"') 
-                            root=root+'"'
-                            entry= '"'+entry+'"'
-                            a=os.path.join(root,entry) #Getting a full path of the file
-                            print(a) 
-                            # a= "'"+'"'+a+'"'+"'"
-                            # a=a.replace(' ','/') 
-                            history = open('paths.txt', 'a')
-                            history.write(a+"\n")
-                            history.close()
-                            a="start "+a #System command
-                            print(a)
-                            os.system(a) #Opening the file
+            open('paths.txt', 'a')
+            
+            if not getPath(command):
+                for root,dirs,files in os.walk(path): #Lisiting all files
+                    for entry in files: #Looking through files
+                        if command.lower() in entry.lower(): #comparing searched file with available files
+                            response=listen()
+                            speak("Did u mean "+entry)
+                            if "yes" in response.lower():
+                                
+                                print(entry)  #print founded file
+                                print("Opening"+root)
+                                root=root.replace('C:/','C:/"')
+                                root=root.replace('""','"') 
+                                root=root+'"'
+                                entry= '"'+entry+'"'
+                                a=os.path.join(root,entry) #Getting a full path of the file
+                                print(a) 
+                                # a= "'"+'"'+a+'"'+"'"
+                                # a=a.replace(' ','/') 
+                                history = open('paths.txt', 'a')
+                                history.write(a+"\n")
+                                history.close()
+                                a="start "+a #System command
+                                print(a)
+                                os.system(a) #Opening the file
 
 
     elif 'read' in command:
