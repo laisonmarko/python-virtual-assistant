@@ -2,7 +2,7 @@
 
 This is voice controlled virtual assisant powered by python 3 
 
-#Functions 
+# Functions 
 
 *  Open any file on the computer drive C pdf,audio ,video etc
 *  Read pdf 
@@ -15,7 +15,7 @@ This is voice controlled virtual assisant powered by python 3
 *  Search wikipedia and read the results 
 *  Rember the search history for quick launch or access of the file or program later
 
-#Requrements 
+# Requrements 
 * SpeechRecongition   
 * Pyttsx3
 * pyPDF3
@@ -24,7 +24,7 @@ This is voice controlled virtual assisant powered by python 3
 * smtplib
 * pyautogui
 
-#Installation
+# Installation
 Once above packages have been installed run alice.py 
 * 'open chrome'
 * 'explorer' to open windows file explorer 
