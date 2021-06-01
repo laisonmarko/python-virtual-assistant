@@ -15,7 +15,7 @@ This is voice controlled virtual assisant powered by python 3
 *  Search wikipedia and read the results 
 *  Rember the search history for quick launch or access of the file or program later
 
-# Requrements 
+# Requrements  (Install using [pip](https://pip.pypa.io/en/stable/))
 * SpeechRecongition   
 * Pyttsx3
 * pyPDF3
@@ -27,9 +27,9 @@ This is voice controlled virtual assisant powered by python 3
 # Installation
 Once above packages have been installed run 
 
-* rasa train
-* rasa run 
-* py actions.py
+* ```rasa train```
+* ```rasa run ```
+* ```py actions.py```
 
 
 # Have Fun
