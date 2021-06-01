@@ -25,11 +25,18 @@ This is voice controlled virtual assisant powered by python 3
 * pyautogui
 
 # Installation
-Once above packages have been installed run alice.py 
+Once above packages have been installed run 
+
+* rasa train
+* rasa run 
+* py actions.py
+
+
+# Have Fun
+
 * 'open chrome'
 * 'explorer' to open windows file explorer 
 * 'clear' to open new desktop
 *  'desktop' to clear screen
 *  'left','right','up','down' 
 *  etc
-
