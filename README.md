@@ -1,8 +1,8 @@
 # python-virtual-assistant
 
-This is voice controlled virtual assisant powered by python 3 
+This is voice controlled virtual assisant powered by python 3  and Rasa 
 
-# Functions 
+## Functions 
 
 *  Open any file on the computer drive C pdf,audio ,video etc
 *  Read pdf 
@@ -15,7 +15,7 @@ This is voice controlled virtual assisant powered by python 3
 *  Search wikipedia and read the results 
 *  Rember the search history for quick launch or access of the file or program later
 
-# Requrements  (Install using [pip](https://pip.pypa.io/en/stable/))
+## Requrements  (Install using [pip](https://pip.pypa.io/en/stable/))
 * SpeechRecongition   
 * Pyttsx3
 * pyPDF3
@@ -24,7 +24,7 @@ This is voice controlled virtual assisant powered by python 3
 * smtplib
 * pyautogui
 
-# Installation
+## Installation
 Once above packages have been installed run 
 
 * ```rasa train```
@@ -32,7 +32,7 @@ Once above packages have been installed run
 * ```py actions.py```
 
 
-# Have Fun
+## Have Fun
 
 * 'open chrome'
 * 'explorer' to open windows file explorer 
