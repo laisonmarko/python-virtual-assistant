@@ -87,7 +87,7 @@ def findFile(command):
     open('paths.txt', 'a')
     i=1
     for root,dirs,files in os.walk(path): #Lisiting all files
-     if i=1:
+     if i==1:
         for entry in files: #Looking through files
             if command.lower() in entry.lower(): #comparing searched file with available files
                 response=listen()
@@ -167,7 +167,7 @@ while True:
             print("start from a line")
             os.system(a) #Opening the file
             findFile(command)
-        else if findFile(command) is not None:
+        elif findFile(command) is not None:
             path=getPath(command)
             command="start "+command #System command
             print(command)
@@ -181,9 +181,10 @@ while True:
     elif 'read' in command:
         path='C:/'
         command=command.replace('read ','')
-        speak("search for a book with tittle  "+command)       
+        speak("search for a book with tittle  "+command) 
+        path=getPath(command)      
           
-        if path=getPath(command) is not None:
+        if path is not None:
             
             # speak("reading "+name)
             pdfFileObject = open(path,'rb')
@@ -192,7 +193,8 @@ while True:
             for i in range(count):
                 page = pdfReader.getPage(i)
                 speak(page.extractText())
-        else if path=findFile(command) is not None:
+                
+        elif path is not None:
 
             # speak("reading "+name)
             pdfFileObject = open(path,'rb')
